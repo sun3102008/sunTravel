@@ -17,7 +17,9 @@ fastClick.attach(document.body)
 
 //使用轮播(1)
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-//使用插件(2)
+//使用轮播的css样式(2)
+require('swiper/dist/css/swiper.css')
+//使用插件(3)
 Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
