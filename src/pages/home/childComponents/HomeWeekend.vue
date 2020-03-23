@@ -4,7 +4,7 @@
        <ul>
          <li 
             class='item border-bottom'
-            v-for='item of recommandList'
+            v-for='item of weekendList'
             :key = 'item.id'          
          >  
             <div class="item-img-wrapper">
@@ -21,25 +21,12 @@
 <script>
 export default {
   name:'HomeWeekend',
-  data () {
-    return {
-      recommandList :[{
-          id:'0001',
-          imgUrl:'http://img1.qunarzz.com/sight/source/1811/65/7322301be0a92c.jpg_r_640x214_a3485c55.jpg',
-          title :'青城道温泉',
-          desc:'温泉好去处好去好去好去好去好去好去好去'
-        },
-        {
-          id:'0002',
-          imgUrl:'http://img1.qunarzz.com/sight/source/1505/a2/78e4dbcfd45a6d.jpg_r_640x214_7a62b06a.jpg',
-          title :'青城道温泉',
-          desc:'温泉好去处'
-        },{
-          id:'0003',
-          imgUrl:'http://img1.qunarzz.com/sight/source/1507/a0/7087c85d439e4.jpg_r_640x214_4cd56a30.jpg',
-          title :'青城道温泉',
-          desc:'温泉好去处'
-        }]
+  props:{
+    weekendList:{
+      type:Array,
+      default () {
+        return []
+      }
     }
   }
 }
@@ -54,7 +41,7 @@ export default {
   .item-img-wrapper
     overflow : hidden
     height :0
-    padding-bottom :33.9%
+    padding-bottom :37.09%
   .item-img
     width: 100%   
   .item-info   

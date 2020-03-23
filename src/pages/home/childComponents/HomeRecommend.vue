@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="home-recommend">热销推荐</div>
-    <div class="item border-bottom" v-for="(item,index) in recommandList" 
+    <div class="item border-bottom" v-for="(item,index) in recommendList" 
       :key="index"
     >
       <div class="item-img">
@@ -19,30 +19,12 @@
 <script>
 export default {
   name:'HomeRecommend',
-  data () {
-    return {
-      recommandList :[{
-          id:'0001',
-          imgUrl:'http://img1.qunarzz.com/sight/p0/201301/16/ae96ce4058bd5cf093835fbb.jpg_200x200_e4cb9743.jpg',
-          title :'青城道温泉1',
-          desc:'温泉好去处好去好去fdfdfsdfdsfdfdsf好去好去好去好去好去'
-        },
-        {
-          id:'0002',
-          imgUrl:'http://img1.qunarzz.com/sight/p0/201301/16/ae96ce4058bd5cf093835fbb.jpg_200x200_e4cb9743.jpg',
-          title :'青城道温泉2',
-          desc:'温泉好去处'
-        },{
-          id:'0003',
-          imgUrl:'http://img1.qunarzz.com/sight/p0/201301/16/ae96ce4058bd5cf093835fbb.jpg_200x200_e4cb9743.jpg',
-          title :'青城道温泉3',
-          desc:'温泉好去处'
-        },{
-          id:'0004',
-          imgUrl:'http://img1.qunarzz.com/sight/p0/201301/16/ae96ce4058bd5cf093835fbb.jpg_200x200_e4cb9743.jpg',
-          title :'青城道温泉4',
-          desc:'温泉好去处'
-      }]
+  props:{
+    recommendList:{
+      type:Array,
+      default (){
+        return []
+      }
     }
   }
 }

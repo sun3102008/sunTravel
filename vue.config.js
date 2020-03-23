@@ -7,5 +7,16 @@ module.exports = {
         'components':'@/components'
       }
     }
+  },
+  devServer:{
+    proxy:{
+      '/api':{
+        target:'http://localhost:8080',
+        pathRewrite:{
+          //当请求的是/api开头的，会替换为/mock
+          '^/api':'/mock'
+        }
+      }
+    }
   }
 }
