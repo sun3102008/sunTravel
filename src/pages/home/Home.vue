@@ -3,6 +3,8 @@
     <home-header></home-header>
     <home-swiper></home-swiper>
     <home-icons></home-icons>
+    <home-recommend></home-recommend>
+    <home-weekend></home-weekend>
   </div>
 </template>
 
@@ -10,6 +12,8 @@
 import HomeHeader from './childComponents/HomeHeader'
 import HomeSwiper from './childComponents/HomeSwiper'
 import HomeIcons from './childComponents/HomeIcons'
+import HomeRecommend from './childComponents/HomeRecommend'
+import HomeWeekend from './childComponents/HomeWeekend'
 
 import axios from 'axios'
 
@@ -18,7 +22,9 @@ export default {
   components:{
     HomeHeader,
     HomeSwiper,
-    HomeIcons
+    HomeIcons,
+    HomeRecommend,
+    HomeWeekend
   },
   methods:{
     getHomeInfo () {
