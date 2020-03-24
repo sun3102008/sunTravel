@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page,index) in pages" :key="index">
         <div class="icon" v-for="item in page" :key="item.id">
           <div class="icon-img">
@@ -16,48 +16,21 @@
 <script>
 export default {
   name:'HomeIcons',
-  data (){
+  props:{
+    iconList:{
+      type:Array,
+      default (){
+        return []
+      }
+    }
+  },
+  data () {
     return {
-       iconList :
-          [{
-            id:'0001',
-            imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-            desc:'景点门票'
-            },{
-                id:'0002',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场夜场夜场夜场夜场夜场112'
-            },{
-                id:'0003',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            },{
-                id:'0004',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            },{
-                id:'0005',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            },{
-                id:'0006',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            },{
-                id:'0007',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            },{
-                id:'0009',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            },
-            {
-                id:'0008',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            }
-            ]
+      //swiperOption是个对象
+      swiperOption:{
+        //停止自动播放
+        autoplay:false
+      }
     }
   },
   computed: {
@@ -77,10 +50,7 @@ export default {
       })
       return pages
     }
-  },
-  mounted() {
-    console.log(this.pages)
-  },
+  }
 }
 </script>
 

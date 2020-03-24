@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <!-- 不加v-if,会显示第4页图片 -->
+    <swiper :options="swiperOption" v-if="swiperList.length">
       <swiper-slide v-for="item of swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" />
       </swiper-slide>
@@ -19,18 +20,16 @@ export default {
         pagination:'.swiper-pagination',
         //让插件支持循环轮播
         loop: true
-      },
-      swiperList:[{
-            id:'0001',
-            imgUrl :'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20196/bc4504a3671b72e19939177e1767a422.jpg_750x200_277b415c.jpg'
-        },{
-            id:'0002',
-            imgUrl :'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/6875979c607515c27de528361ab1e55e.jpg_750x200_9db3d155.jpg'
-        },{
-            id :'0003',
-            imgUrl:'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/2bf6cffe02525445c215e45ea128162b.jpg_750x200_32f01903.jpg'
-        }]
       }
+    }
+  },
+  props:{
+    swiperList:{
+      type:Array,
+      default (){
+        return []
+      }
+    }
   }
 
 }
