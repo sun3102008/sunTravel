@@ -23,10 +23,10 @@ export default {
     overflow:hidden
     font-size:.32rem
     background-color:$bgColor
+    overflow:hidden
     .left-icon
-      font-size:.32rem
+      font-size:.4rem
       float:left
-      margin-left:.3rem
-      width:.64rem
+      margin-left:.1rem
       color:#fff
 </style>

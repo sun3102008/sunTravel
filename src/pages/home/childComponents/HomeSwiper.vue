@@ -1,6 +1,9 @@
 <template>
   <div class="wrapper">
+<<<<<<< HEAD
     <!-- 不加v-if,会显示第4页图片 -->
+=======
+>>>>>>> origin/city-router
     <swiper :options="swiperOption" v-if="swiperList.length">
       <swiper-slide v-for="item of swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" />
@@ -26,7 +29,11 @@ export default {
   props:{
     swiperList:{
       type:Array,
+<<<<<<< HEAD
       default (){
+=======
+      default () {
+>>>>>>> origin/city-router
         return []
       }
     }
