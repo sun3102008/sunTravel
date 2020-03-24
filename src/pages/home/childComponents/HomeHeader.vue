@@ -7,10 +7,12 @@
       <span class="iconfont center-icon">&#xe64f;</span>
       输入城市/景点/游玩主题
     </div>
-    <div class="header-right">
-      城市
+    <router-link to='/city'>
+      <div class="header-right">
+         城市
       <span class="iconfont right-icon">&#xe610;</span>
-    </div>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -46,6 +48,7 @@ export default {
       .center-icon
         margin-left:.1rem
     .header-right
+      color:#fff
       width:1.24rem
       float:right
       text-align:center
