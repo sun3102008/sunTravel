@@ -18,46 +18,14 @@ export default {
   name:'HomeIcons',
   data (){
     return {
-       iconList :
-          [{
-            id:'0001',
-            imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-            desc:'景点门票'
-            },{
-                id:'0002',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场夜场夜场夜场夜场夜场112'
-            },{
-                id:'0003',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            },{
-                id:'0004',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            },{
-                id:'0005',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            },{
-                id:'0006',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            },{
-                id:'0007',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            },{
-                id:'0009',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            },
-            {
-                id:'0008',
-                imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/4d/a1eda1a2b8414302.png',
-                desc:'暑期夜场'
-            }
-            ]
+    }
+  },
+  props:{
+    iconList:{
+      type:Array,
+      defaut () {
+        return []
+      }
     }
   },
   computed: {
@@ -79,7 +47,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.pages)
+    // console.log(this.pages)
   },
 }
 </script>
