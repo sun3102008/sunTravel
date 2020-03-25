@@ -22,11 +22,7 @@ export default {
   props:{
     recommendList:{
       type:Array,
-<<<<<<< HEAD
-      default (){
-=======
       default () {
->>>>>>> origin/city-router
         return []
       }
     }

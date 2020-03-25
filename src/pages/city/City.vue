@@ -2,8 +2,11 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :cities='cities' :hot-cities='hotCities'></city-list>
-    <city-alphabet :cities='cities'></city-alphabet>
+    <city-list 
+      :cities='cities' :hot-cities='hotCities'
+      :letter='letter'
+    ></city-list>
+    <city-alphabet :cities='cities' @letterClick='letterClick'></city-alphabet>
   </div>
 </template>
 
@@ -20,7 +23,8 @@ export default {
   data (){
     return {
       hotCities:[],
-      cities:{}
+      cities:{},
+      letter:''
     }
   },
   components:{
@@ -41,7 +45,12 @@ export default {
             }
             // console.log(this.hotCities)
           })
-      }
+      },
+      //接收子组件(字母表)的点击事件，并将其传递给list页面
+    letterClick (sun) {
+      // console.log(sun)
+      this.letter = sun //接收到字母页面的数据 传递给list页面
+    }
   },
   mounted() {
     this.getCityInfo()

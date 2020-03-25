@@ -26,12 +26,10 @@ export default {
   },
   data () {
     return {
-<<<<<<< HEAD
-      //swiperOption是个对象
+    //阻止轮播图自动播放
       swiperOption:{
-        //停止自动播放
         autoplay:false
-=======
+      }
     }
   },
   props:{
@@ -39,7 +37,6 @@ export default {
       type:Array,
       defaut () {
         return []
->>>>>>> origin/city-router
       }
     }
   },
@@ -60,14 +57,10 @@ export default {
       })
       return pages
     }
-<<<<<<< HEAD
-  }
-=======
   },
   mounted() {
     // console.log(this.pages)
   },
->>>>>>> origin/city-router
 }
 </script>
 

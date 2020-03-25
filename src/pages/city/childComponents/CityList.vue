@@ -23,8 +23,9 @@
           
         </div>
       </div>
-      <div class="area" v-for="(item,index) of cities" :key="index">
-          <div class="title border-topbottom">{{index}}</div>
+        <!-- key值是A,B,C,D... -->
+      <div class="area" v-for="(item,key) of cities" :key="key" :ref='key'>
+          <div class="title border-topbottom">{{key}}</div>
           <div class="item-list" v-for="i of item" :key="i.id">
             <div class="item border-bottom">{{i.name}}</div>
           </div>
@@ -36,7 +37,6 @@
 <script>
 import BScroll from 'better-scroll'
 
-
 export default {
   name:'CityList',
   mounted() {
@@ -45,16 +45,34 @@ export default {
   props:{
     hotCities:{
       type:Array,
-      default (){
+      default () {
         return []
       }
     },
     cities:{
       type:Object,
-      default (){
+      default () {
         return {}
       }
+    },
+    letter:{
+      type:String,
+      default:''
     }
+  },
+  //当letter发生改变时，点击字母 跳转到相应区域
+  watch: {
+    //监听 letter
+    letter () {
+      // console.log(this.letter)
+      if (this.letter) {
+        //1.字母页面中的字母(this.letter)  对应list中字母的区域(element)
+        //注：使用循环获取的:ref，$refs获取到的是个 数组
+        const element = this.$refs[this.letter][0]
+        //2.使用bs 方法
+        this.scroll.scrollToElement(element)
+      }
+    } 
   }
 }
 </script>

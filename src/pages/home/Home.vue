@@ -1,17 +1,10 @@
 <template>
   <div>
     <home-header :city='city'></home-header>
-<<<<<<< HEAD
-    <home-swiper :swiperList='swiperList'></home-swiper>
-    <home-icons :iconList='iconList'></home-icons>
-    <home-recommend :recommendList='recommendList'></home-recommend>
-    <home-weekend :weekendList='weekendList'></home-weekend>
-=======
     <home-swiper :swiper-list='swiperList'></home-swiper>
     <home-icons :icon-list='iconList'></home-icons>
     <home-recommend :recommend-list='recommendList'></home-recommend>
     <home-weekend :weekend-list='weekendList'></home-weekend>
->>>>>>> origin/city-router
   </div>
 </template>
 
@@ -58,11 +51,7 @@ export default {
         this.recommendList = resData.data.recommendList
         this.weekendList = resData.data.weekendList
       }
-<<<<<<< HEAD
-      // console.log(res)
-=======
       console.log(res)
->>>>>>> origin/city-router
     }
   },
   mounted() {
