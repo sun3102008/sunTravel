@@ -5,11 +5,11 @@
         <div class="title border-topbottom">
             当前城市
         </div>
-        <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-        </div>
+            <div class="button-list">
+              <div class="button-wrapper">
+                <div class="button">{{city}}</div>
+              </div>
+           </div>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
@@ -18,7 +18,7 @@
             class="button-wrapper" 
             v-for="(item,id) in hotCities" :key="id"
           >
-            <div class="button">{{item.name}}</div>
+            <div class="button" @click="cityNameClick(item.name)">{{item.name}}</div>
           </div>
           
         </div>
@@ -27,7 +27,9 @@
       <div class="area" v-for="(item,key) of cities" :key="key" :ref='key'>
           <div class="title border-topbottom">{{key}}</div>
           <div class="item-list" v-for="i of item" :key="i.id">
-            <div class="item border-bottom">{{i.name}}</div>
+            <div class="item border-bottom"
+              @click='cityNameClick(i.name)'
+            >{{i.name}}</div>
           </div>
       </div>
     </div>
@@ -36,11 +38,15 @@
 
 <script>
 import BScroll from 'better-scroll'
+import { mapState,mapMutations } from 'vuex'
 
 export default {
   name:'CityList',
   mounted() {
     this.scroll = new BScroll(this.$refs.wrapper)
+  },
+  computed: {
+    ...mapState(['city'])
   },
   props:{
     hotCities:{
@@ -58,6 +64,16 @@ export default {
     letter:{
       type:String,
       default:''
+    }
+  },
+  methods: {
+    ...mapMutations(['cityName']),
+    cityNameClick (city) {
+      // console.log(city)
+      //向vuex 发送事件(actions)
+      // this.$store.commit('cityName', city)
+      this.cityName(city)
+      this.$router.push('/home')
     }
   },
   //当letter发生改变时，点击字母 跳转到相应区域

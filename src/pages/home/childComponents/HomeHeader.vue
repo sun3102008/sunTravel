@@ -9,7 +9,7 @@
     </div>
     <router-link to='/city'>
       <div class="header-right">
-         {{city}}
+        {{homeCity}}
       <span class="iconfont right-icon">&#xe610;</span>
       </div>
     </router-link>
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name:'HomeHeader',
   props:{
@@ -24,7 +26,12 @@ export default {
       type:String,
       default:''
     }
-  }
+  },
+  computed: {
+    ...mapState({
+      homeCity:'city'
+    })
+  },
 }
 </script>
 
@@ -55,7 +62,10 @@ export default {
         margin-left:.1rem
     .header-right
       color:#fff
-      width:1.24rem
+// 当min-width的值小于内容实际宽度时，元素的宽度等于min-width;
+//当内容实际宽度小于max-width的值，元素的宽度等于min-width。      
+      max-width:1.04rem
+      padding:0 .1rem
       float:right
       text-align:center
       .right-icon
