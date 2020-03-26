@@ -15,6 +15,8 @@ import HomeIcons from './childComponents/HomeIcons'
 import HomeRecommend from './childComponents/HomeRecommend'
 import HomeWeekend from './childComponents/HomeWeekend'
 
+import { mapState } from 'vuex'
+
 //引入axios
 import axios from 'axios'
 
@@ -29,6 +31,7 @@ export default {
   },
   data () {
     return {
+      activeCity:'',//保存城市id
       swiperList:[],
       iconList:[],
       recommendList:[],
@@ -37,7 +40,7 @@ export default {
   },
   methods: {
     getHomeInfo (){
-      axios.get('/api/index.json')
+      axios.get('/api/index.json?city=' + this.city)
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
@@ -52,9 +55,22 @@ export default {
       console.log(res)
     }
   },
+  computed: {
+    ...mapState(['city'])
+  },
   mounted() {
     this.getHomeInfo()
-  }
+    //console.log(this.city) 获取当前状态的城市名
+    this.activeCity = this.city
+  },
+  activated() {
+    //进入home页面,根据城市名 渲染对应城市内容
+    if (this.activeCity !== this.city) {
+      //1.城市名不等，发送axios请求，并保存新城市名
+      this.activeCity = this.city
+      this.getHomeInfo()
+    }
+  },
 }
 </script>
 <style lang="">
