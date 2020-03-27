@@ -3,6 +3,7 @@
     <div class="home-recommend">热销推荐</div>
     <div class="item border-bottom" v-for="(item,index) in recommendList" 
       :key="index"
+      @click="recommendClick"
     >
       <div class="item-img">
         <img :src="item.imgUrl">
@@ -26,7 +27,12 @@ export default {
         return []
       }
     }
-  }
+  },
+  methods: {
+    recommendClick () {
+      this.$router.push('/detail')
+    }
+  },
 }
 </script>
 
