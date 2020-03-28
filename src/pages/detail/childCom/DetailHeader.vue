@@ -7,7 +7,7 @@
         class="right-content" v-show="!isShow"
         :style='opacityStyle'
     >
-      <div class="iconfont header-fixed-back">&#xe60d;</div>
+      <div class="iconfont header-fixed-back" @click="backArrow">&#xe60d;</div>
       景点详情
     </div>
   </div>
@@ -48,6 +48,10 @@ export default {
   },
   activated() {
     window.addEventListener('scroll',this.handleScroll)
+  },
+  deactivated() {
+    //离开页面，销毁全局事件
+    window.removeEventListener('scroll',this.handleScroll)
   },
 }
 </script>

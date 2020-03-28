@@ -52,7 +52,7 @@ export default {
         this.recommendList = resData.data.recommendList
         this.weekendList = resData.data.weekendList
       }
-      console.log(res)
+      // console.log(res)
     }
   },
   computed: {

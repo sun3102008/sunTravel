@@ -9,7 +9,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path:'',
+    path:'/',
     redirect: '/home'
   },
   {
@@ -30,7 +30,13 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  //vue router 滚动行为
+  scrollBehavior (to, from, savedPosition) {
+    // return 期望滚动到哪个的位置
+    return {x:0,y:0}
+  }
 })
+
 
 export default router
